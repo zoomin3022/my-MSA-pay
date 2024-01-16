@@ -34,9 +34,9 @@ dependencies {
     //mariaDB dependency
     //implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.7.1'
     //p6spy dependency
-    implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
     //Swagger dependency
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.2.1'
+    implementation project(path: ':common')
 }
 
 tasks.named('test') {
