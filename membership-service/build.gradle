@@ -32,7 +32,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     //mariaDB dependency
-    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.7.1'
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.1'
     //p6spy dependency
     //Swagger dependency
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.2.1'
