@@ -23,16 +23,16 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    //implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    //runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     //mariaDB dependency
-    //implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.7.1'
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.7.1'
     //p6spy dependency
     //Swagger dependency
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.2.1'
