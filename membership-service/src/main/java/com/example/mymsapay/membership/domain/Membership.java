@@ -1,4 +1,5 @@
 package com.example.mymsapay.membership.domain;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,12 +9,18 @@ import lombok.Value;
 // 외부에서 생성자로 생성을 막기 위함
 // Entity 의 경우 프록시 생성을 위해 private 은 불가 protected 로 선언했지만 여기서는 private 가능
 public class Membership {
-    @Getter private final String membershipId;
-    @Getter private final String name;
-    @Getter private final String email;
-    @Getter private final String address;
-    @Getter private final boolean isValid;
-    @Getter private final String aggregateIdentifier;
+    @Getter
+    private final String membershipId;
+    @Getter
+    private final String name;
+    @Getter
+    private final String email;
+    @Getter
+    private final String address;
+    @Getter
+    private final boolean isValid;
+    @Getter
+    private final String aggregateIdentifier;
 
     public static Membership generateMember(
             MembershipId membershipId, MembershipName membershipName, MembershipEmail membershipEmail, MembershipAddress membershipAddress, MembershipIsValid membershipIsValid,
@@ -37,7 +44,8 @@ public class Membership {
         public MembershipId(String value) {
             this.membershipId = value;
         }
-        String membershipId ;
+
+        String membershipId;
     }
 
     @Value
@@ -48,11 +56,13 @@ public class Membership {
 
         String nameValue;
     }
+
     @Value
     public static class MembershipEmail {
         public MembershipEmail(String value) {
             this.emailValue = value;
         }
+
         String emailValue;
     }
 
@@ -61,6 +71,7 @@ public class Membership {
         public MembershipAddress(String value) {
             this.addressValue = value;
         }
+
         String addressValue;
     }
 
@@ -69,6 +80,7 @@ public class Membership {
         public MembershipIsValid(boolean value) {
             this.isValidValue = value;
         }
+
         boolean isValidValue;
     }
 
@@ -77,6 +89,7 @@ public class Membership {
         public MembershipAggregateIdentifier(String value) {
             this.aggregateIdentifier = value;
         }
+
         String aggregateIdentifier;
     }
 }
