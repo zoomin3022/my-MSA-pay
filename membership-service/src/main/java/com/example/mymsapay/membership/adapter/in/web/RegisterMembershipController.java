@@ -16,7 +16,7 @@ public class RegisterMembershipController {
 
     private final RegisterMembershipUseCase registerMembershipUseCase;
 
-    @PostMapping(path = "/membership/register/")
+    @PostMapping(path = "/membership")
     void registerMembership(@RequestBody RegisterMembershipRequest request) {
         // 먼저 Request가 들어오고
 
