@@ -3,7 +3,6 @@ plugins {
     id 'org.springframework.boot' version '3.2.1'
     id 'io.spring.dependency-management' version '1.1.4'
 }
-
 group = 'com.example.mymsapay.membership'
 version = '0.0.1-SNAPSHOT'
 
@@ -34,6 +33,7 @@ dependencies {
     //mariaDB dependency
     implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.1'
     //p6spy dependency
+    implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
     //Swagger dependency
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.2.1'
     implementation project(path: ':common')
