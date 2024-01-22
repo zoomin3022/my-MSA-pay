@@ -1,10 +1,7 @@
 package com.example.mymsapay.membership.adapter.out.persistence;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "membership")
@@ -15,11 +12,11 @@ public class MembershipEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long membershipId;
-
+    @Setter
     private String name;
-
+    @Setter
     private String address;
-
+    @Setter
     private String email;
 
     private boolean isValid;
