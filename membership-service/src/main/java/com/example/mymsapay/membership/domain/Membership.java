@@ -10,7 +10,7 @@ import lombok.Value;
 // Entity 의 경우 프록시 생성을 위해 private 은 불가 protected 로 선언했지만 여기서는 private 가능
 public class Membership {
     @Getter
-    private final String membershipId;
+    private final Long membershipId;
     @Getter
     private final String name;
     @Getter
@@ -41,11 +41,11 @@ public class Membership {
      */
     @Value
     public static class MembershipId {
-        public MembershipId(String value) {
+        public MembershipId(Long value) {
             this.membershipId = value;
         }
 
-        String membershipId;
+        Long membershipId;
     }
 
     @Value

@@ -30,7 +30,7 @@ class RegisterMembershipControllerTest {
     public void testRegisterMembership() throws Exception {
         RegisterMembershipRequest request = new RegisterMembershipRequest("name", "email", "address");
         Membership expect = Membership.generateMember(
-                new Membership.MembershipId("1"),
+                new Membership.MembershipId(1L),
                 new Membership.MembershipName("name"),
                 new Membership.MembershipEmail("email"),
                 new Membership.MembershipAddress("address"),
