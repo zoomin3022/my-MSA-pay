@@ -17,7 +17,7 @@ public class MembershipPersistenceAdapter implements FindMembershipPort, Registe
     @Override
     public MembershipEntity findById(Long memberId) {
         MembershipEntity membershipEntity = membershipRepository.findById(memberId)
-                .orElseThrow(() -> new MembershipException(MembershipExceptionType.MEMBERSHIP_EXCEPTION_NOT_EXISTS));
+                .orElseThrow(() -> new MembershipException(MembershipExceptionType.MEMBERSHIP_NOT_EXISTS));
         return membershipEntity;
     }
 
