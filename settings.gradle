@@ -1,6 +1,6 @@
 rootProject.name = 'MyMSAPay'
-include 'membership-service'
+
 include 'membership-service'
 include 'common'
-include 'common'
+include 'banking-service'
 
