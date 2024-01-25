@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 public class MembershipMapper {
     public Membership entityToDomain(
             MembershipEntity membership) {
-        System.out.println(membership.toString());
         return Membership.generateMember(
                 new Membership.MembershipId(membership.getMembershipId()),
                 new Membership.MembershipName(membership.getName()),
