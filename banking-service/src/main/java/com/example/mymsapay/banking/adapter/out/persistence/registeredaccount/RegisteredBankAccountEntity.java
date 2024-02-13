@@ -1,4 +1,4 @@
-package com.example.mymsapay.banking.adapter.out.persistence;
+package com.example.mymsapay.banking.adapter.out.persistence.registeredaccount;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,7 +7,7 @@ import lombok.*;
 @Table(name = "bank_account")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class BankAccountEntity {
+public class RegisteredBankAccountEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class BankAccountEntity {
     private boolean linkedStatusIsValid;
 
     @Builder
-    public BankAccountEntity(Long membershipId, String bankName, String bankAccountNumber, boolean linkedStatusIsValid) {
+    public RegisteredBankAccountEntity(Long membershipId, String bankName, String bankAccountNumber, boolean linkedStatusIsValid) {
         this.membershipId = membershipId;
         this.bankName = bankName;
         this.bankAccountNumber = bankAccountNumber;

@@ -3,8 +3,8 @@ package com.example.mymsapay.banking.application.service;
 import com.example.mymsapay.UseCase;
 import com.example.mymsapay.banking.adapter.out.external.bank.BankAccount;
 import com.example.mymsapay.banking.adapter.out.external.bank.GetBankAccountRequest;
-import com.example.mymsapay.banking.adapter.out.persistence.BankAccountEntity;
-import com.example.mymsapay.banking.adapter.out.persistence.BankAccountMapper;
+import com.example.mymsapay.banking.adapter.out.persistence.registeredaccount.RegisteredBankAccountEntity;
+import com.example.mymsapay.banking.adapter.out.persistence.registeredaccount.RegisteredBankAccountMapper;
 import com.example.mymsapay.banking.application.port.in.RegisterBankAccountCommand;
 import com.example.mymsapay.banking.application.port.in.RegisterBankAccountUseCase;
 import com.example.mymsapay.banking.application.port.out.RegisterBankAccountPort;
@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class RegisterBankAccountService implements RegisterBankAccountUseCase {
 
     private final RegisterBankAccountPort registerMembershipPort;
-    private final BankAccountMapper membershipMapper;
+    private final RegisteredBankAccountMapper membershipMapper;
 
     private final RequestBankAccountInfoPort requestBankAccountInfoPort;
 
@@ -41,7 +41,7 @@ public class RegisterBankAccountService implements RegisterBankAccountUseCase {
         // 2. 등록 가능하면 등록하고 정보 리턴
         // 2-1. 등록 불가능하면 예외 발생
         if (isValid) {
-            BankAccountEntity membershipEntity =
+            RegisteredBankAccountEntity membershipEntity =
                     registerMembershipPort.createBankAccount(
                             new RegisteredBankAccount.MembershipId(command.getMembershipId()),
                             new RegisteredBankAccount.BankName(command.getBankName()),

@@ -1,7 +1,7 @@
 package com.example.mymsapay.banking.application.port.out;
 
-import com.example.mymsapay.banking.adapter.out.persistence.BankAccountEntity;
+import com.example.mymsapay.banking.adapter.out.persistence.registeredaccount.RegisteredBankAccountEntity;
 
 public interface FindBankAccountPort {
-    BankAccountEntity findById(Long bankAccountId);
+    RegisteredBankAccountEntity findById(Long bankAccountId);
 }
