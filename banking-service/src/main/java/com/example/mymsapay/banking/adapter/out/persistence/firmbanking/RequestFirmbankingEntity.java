@@ -1,10 +1,7 @@
 package com.example.mymsapay.banking.adapter.out.persistence.firmbanking;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "request_firmbanking")
@@ -27,6 +24,7 @@ public class RequestFirmbankingEntity {
      일반 계좌로 송금일때는 fromBankName, fromBankAccountNumber, toBankName, toBankAccountNumber를 사용하면 될거라 생각합니다.
      */
     private int moneyAmount;
+    @Setter
     private String firmbankingRequestStatus; //요청 완료 실패 여부 나중에 Enum으로 변경
 
     @Builder

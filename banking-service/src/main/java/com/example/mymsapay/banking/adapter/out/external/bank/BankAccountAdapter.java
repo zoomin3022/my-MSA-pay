@@ -19,10 +19,10 @@ public class BankAccountAdapter implements RequestBankAccountInfoPort, RequestEx
 
     @Override
     public FirmBankingResult requestExternalFirmbanking(ExternalFirmbankingRequest request) {
-        // 외부 은행이랑 통신을 해서 펌뱅킹 요청
+        // request 활용 외부 은행이랑 통신을 해서 펌뱅킹 요청
 
 
         // 그 결과를 패캠 패이의 FirmBankingResult에 파싱
-        return new FirmBankingResult("SUCCESS");
+        return new FirmBankingResult("성공");
     }
 }
