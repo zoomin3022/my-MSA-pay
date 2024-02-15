@@ -23,6 +23,6 @@ public class BankAccountAdapter implements RequestBankAccountInfoPort, RequestEx
 
 
         // 그 결과를 패캠 패이의 FirmBankingResult에 파싱
-        return new FirmBankingResult("성공");
+        return new FirmBankingResult(FirmBankingResult.Result.SUCCESS);
     }
 }

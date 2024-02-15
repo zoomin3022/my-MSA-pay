@@ -32,8 +32,7 @@ public class RequestFirmbankingService implements RequestFirmbankingUseCase {
                 new RequestFirmbanking.ToBankName(command.getToBankName()),
                 new RequestFirmbanking.ToBankAccountNumber(command.getToBankAccountNumber()),
                 new RequestFirmbanking.MoneyAmount(command.getMoneyAmount()),
-                new RequestFirmbanking.FirmbankingRequestStatus("요청중")
-                );
+                RequestFirmbanking.FirmbankingRequestStatus.REQUESTING);
         // 2. 회원끼리의 거래면 머니만 주고받고 외부 계좌면 외부 은행에 펌뱅킹 요청 일단은 여기서는 간단하게 하려고 무조건 요청이라 침
         FirmBankingResult firmBankingResult = requestExternalFirmbankingPort.requestExternalFirmbanking(new ExternalFirmbankingRequest(
                 command.getFromBankName(),
@@ -41,10 +40,10 @@ public class RequestFirmbankingService implements RequestFirmbankingUseCase {
                 command.getToBankName(),
                 command.getToBankAccountNumber()));
         // 3. 펌뱅킹 요청이 완료되면 요청 상태를 완료로 변경
-        if(firmBankingResult.getResult().equals("성공")){
-            entity.setFirmbankingRequestStatus("완료");
+        if (firmBankingResult.getResult() == FirmBankingResult.Result.SUCCESS) {
+            entity.setFirmbankingRequestStatus(RequestFirmbanking.FirmbankingRequestStatus.SUCCESS);
         } else {
-            entity.setFirmbankingRequestStatus("실패");
+            entity.setFirmbankingRequestStatus(RequestFirmbanking.FirmbankingRequestStatus.FAIL);
         }
 
         return mapper.entityToDomain(requestFirmbankingPort.updateRequestFirmbanking(entity));

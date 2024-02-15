@@ -19,7 +19,7 @@ public class RequestFirmbankingPersistenceAdapter implements RequestFirmbankingP
                         .toBankName(toBankName.getNameValue())
                         .toBankAccountNumber(toBankAccountNumber.getBankAccountNumberValue())
                         .moneyAmount(moneyAmount.getMoneyAmountValue())
-                        .firmbankingRequestStatus(firmbankingRequestStatus.getFirmbankingRequestStatusValue())
+                        .firmbankingRequestStatus(firmbankingRequestStatus)
                         .build());
     }
 

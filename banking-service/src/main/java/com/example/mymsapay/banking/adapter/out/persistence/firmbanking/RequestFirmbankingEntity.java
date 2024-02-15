@@ -1,5 +1,6 @@
 package com.example.mymsapay.banking.adapter.out.persistence.firmbanking;
 
+import com.example.mymsapay.banking.domain.RequestFirmbanking;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,11 +26,11 @@ public class RequestFirmbankingEntity {
      */
     private int moneyAmount;
     @Setter
-    private String firmbankingRequestStatus; //요청 완료 실패 여부 나중에 Enum으로 변경
+    private RequestFirmbanking.FirmbankingRequestStatus firmbankingRequestStatus; //요청 완료 실패 여부 나중에 Enum으로 변경
 
     @Builder
 
-    public RequestFirmbankingEntity(String fromBankName, String fromBankAccountNumber, String toBankName, String toBankAccountNumber, int moneyAmount, String firmbankingRequestStatus) {
+    public RequestFirmbankingEntity(String fromBankName, String fromBankAccountNumber, String toBankName, String toBankAccountNumber, int moneyAmount, RequestFirmbanking.FirmbankingRequestStatus firmbankingRequestStatus) {
         this.fromBankName = fromBankName;
         this.fromBankAccountNumber = fromBankAccountNumber;
         this.toBankName = toBankName;

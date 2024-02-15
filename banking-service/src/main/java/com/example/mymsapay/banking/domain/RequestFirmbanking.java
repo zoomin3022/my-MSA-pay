@@ -14,7 +14,11 @@ public class RequestFirmbanking {
     private final String toBankName;
     private final String toBankAccountNumber;
     private final int moneyAmount;
-    private final String firmbankingRequestStatus; //요청 완료 실패 여부 나중에 Enum으로 변경
+    private final FirmbankingRequestStatus firmbankingRequestStatus;
+
+    public static enum FirmbankingRequestStatus {
+        SUCCESS, FAIL, REQUESTING
+    }
 
     public static RequestFirmbanking generateFirmbankingRequest(
             RequestFirmbankingId requestFirmbankingId, FromBankName fromBankName,
@@ -28,7 +32,7 @@ public class RequestFirmbanking {
                 toBankName.nameValue,
                 toBankAccountNumber.bankAccountNumberValue,
                 moneyAmount.moneyAmountValue,
-                firmbankingRequestStatus.firmbankingRequestStatusValue
+                firmbankingRequestStatus
         );
     }
 
@@ -84,14 +88,5 @@ public class RequestFirmbanking {
         }
 
         int moneyAmountValue;
-    }
-
-    @Value
-    public static class FirmbankingRequestStatus {
-        public FirmbankingRequestStatus(String value) {
-            this.firmbankingRequestStatusValue = value;
-        }
-
-        String firmbankingRequestStatusValue;
     }
 }

@@ -13,7 +13,6 @@ public class RequestFirmbankingMapper {
                 new RequestFirmbanking.ToBankName(entity.getToBankName()),
                 new RequestFirmbanking.ToBankAccountNumber(entity.getToBankAccountNumber()),
                 new RequestFirmbanking.MoneyAmount(entity.getMoneyAmount()),
-                new RequestFirmbanking.FirmbankingRequestStatus(entity.getFirmbankingRequestStatus())
-        );
+                entity.getFirmbankingRequestStatus());
     }
 }

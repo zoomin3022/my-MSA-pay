@@ -7,5 +7,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class FirmBankingResult {
 
-    private String result; //이 부분도 enum으로 수정 필요
+    private Result result;
+
+    public static enum Result {
+        SUCCESS, FAIL
+    }
 }
