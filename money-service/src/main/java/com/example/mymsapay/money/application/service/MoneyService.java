@@ -16,6 +16,8 @@ public class MoneyService implements MoneyUseCase {
     private final ChargingMoneyPort chargingMoneyPort;
     private final MoneyChargingMapper mapper;
 
+
+
     @Override
     public MoneyCharging chargeMoney(MoneyChargingCommand command) {
 
@@ -31,7 +33,8 @@ public class MoneyService implements MoneyUseCase {
         // 5. 고객의 계좌 -> 페이 법인 계좌
 
         // 6. 정상 실패 처리 (일단은 성공이라 가정하고 요청 -> 성공으로 처리)
-        // 멤버의 머니값 증액도 필요한데
+        chargingMoneyPort.chargeMoney(command.getTargetMembershipId(), )
+
         entity.setChargingMoneyStatus(ChargingMoneyStatus.SUCCEED);
         return mapper.entityToDomain(entity);
 
