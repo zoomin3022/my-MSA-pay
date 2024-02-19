@@ -8,7 +8,9 @@ import com.example.mymsapay.money.domain.MoneyCharging;
 
 public interface ChargingMoneyPort {
 
-    MemberMoneyEntity createMemberMoney(MemberMoney.MembershipId membershipId);
+    MemberMoneyEntity createMemberMoney(Long membershipId);
+
+    MemberMoneyEntity findMemberMoneyEntityByMembershipId(Long membershipId);
 
     MoneyChargingEntity chargeMoney(
             MoneyCharging.TargetMembershipId targetMembershipId,

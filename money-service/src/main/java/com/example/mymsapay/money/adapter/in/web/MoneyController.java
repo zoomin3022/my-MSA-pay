@@ -4,13 +4,11 @@ import com.example.mymsapay.WebAdapter;
 import com.example.mymsapay.money.adapter.in.web.dto.MoneyChargingRequest;
 import com.example.mymsapay.money.application.port.in.MoneyChargingCommand;
 import com.example.mymsapay.money.application.port.in.MoneyUseCase;
+import com.example.mymsapay.money.domain.MemberMoney;
 import com.example.mymsapay.money.domain.MoneyCharging;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @WebAdapter
@@ -19,6 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class MoneyController {
 
     private final MoneyUseCase moneyUseCase;
+
+    @PostMapping(path = "/money/account/{membershipId}")
+    ResponseEntity<MemberMoney> createMoneyAccount(@PathVariable Long membershipId) {
+        return ResponseEntity.ok(moneyUseCase.createMoneyAccount(membershipId));
+    }
 
     @PostMapping(path = "/money")
     ResponseEntity<MoneyCharging> chargeMoney(@RequestBody MoneyChargingRequest request) {
@@ -32,9 +35,6 @@ public class MoneyController {
 
         MoneyCharging moneyCharging = moneyUseCase.chargeMoney(command);
 
-        if(registeredBankAccount == null) {
-            throw new BankAccountException(BankAccountExceptionType.NULL_FAIL);
-        }
-        return ResponseEntity.ok(registeredBankAccount);
+        return ResponseEntity.ok(moneyCharging);
     }
 }

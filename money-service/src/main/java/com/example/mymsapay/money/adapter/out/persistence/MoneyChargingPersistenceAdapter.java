@@ -23,12 +23,18 @@ public class MoneyChargingPersistenceAdapter implements ChargingMoneyPort {
     }
 
     @Override
-    public MemberMoneyEntity createMemberMoney(MemberMoney.MembershipId membershipId) {
+    public MemberMoneyEntity createMemberMoney(Long membershipId) {
         return memberMoneyRepository.save(MemberMoneyEntity
                 .builder()
-                .membershipId(membershipId.getMembershipId())
+                .membershipId(membershipId)
                 .balance(0)
                 .build());
+    }
+
+    @Override
+    public MemberMoneyEntity findMemberMoneyEntityByMembershipId(Long membershipId) {
+        return memberMoneyRepository.findByMembershipId(membershipId)
+                .orElseThrow(() -> new MoneyException(MoneyExceptionType.MONEY_ACCOUNT_NOT_EXISTS));
     }
 
     @Override
