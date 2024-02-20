@@ -41,9 +41,10 @@ public class MoneyService implements MoneyUseCase {
         chargingMoneyPort.chargeBalance(new MemberMoney.MemberMoneyId(memberMoneyEntity.getMemberMoneyId()), command.getChargingMoneyAmount());
 
         moneyChargingEntity.setChargingMoneyStatus(ChargingMoneyStatus.SUCCEED);
+        chargingMoneyPort.updateMoneyCharging(moneyChargingEntity);
+
+
         return moneyChargingMapper.entityToDomain(moneyChargingEntity);
-
-
     }
 
     @Override

@@ -23,6 +23,12 @@ public class MoneyChargingPersistenceAdapter implements ChargingMoneyPort {
     }
 
     @Override
+    public MoneyChargingEntity updateMoneyCharging(MoneyChargingEntity moneyChargingEntity) {
+        return chargingRepository.save(moneyChargingEntity);
+    }
+
+
+    @Override
     public MemberMoneyEntity createMemberMoney(Long membershipId) {
         return memberMoneyRepository.save(MemberMoneyEntity
                 .builder()

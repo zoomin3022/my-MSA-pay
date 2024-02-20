@@ -18,6 +18,8 @@ public interface ChargingMoneyPort {
             ChargingMoneyStatus chargingMoneyStatus
     );
 
+    MoneyChargingEntity updateMoneyCharging(MoneyChargingEntity moneyChargingEntity);
+
     MemberMoneyEntity chargeBalance(
             MemberMoney.MemberMoneyId memberMoneyId,
             int chargeAmount
