@@ -1,44 +1,49 @@
 plugins {
     id 'java'
+    id 'java-library'
     id 'org.springframework.boot' version '3.2.1'
     id 'io.spring.dependency-management' version '1.1.4'
 }
-
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-
-java {
-    sourceCompatibility = '17'
-}
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    //implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    //runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-    //mariaDB dependency
-    //implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.7.1'
-    //p6spy dependency
-    implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
-    //Swagger dependency
-    testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.2.1'
-}
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
 
-tasks.named('test') {
-    useJUnitPlatform()
+    java {
+        sourceCompatibility = '17'
+    }
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
+        //Swagger dependency
+        testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.2.1'
+
+        implementation 'org.springframework.boot:spring-boot-starter-aop'
+        implementation('org.springframework.kafka:spring-kafka')
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
 }
