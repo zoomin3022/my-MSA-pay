@@ -1,6 +1,6 @@
 package com.example.mymsapay.banking.application.service;
 
-import com.example.mymsapay.UseCase;
+import com.example.mymsapay.common.UseCase;
 import com.example.mymsapay.banking.adapter.out.external.bank.BankAccount;
 import com.example.mymsapay.banking.adapter.out.external.bank.GetBankAccountRequest;
 import com.example.mymsapay.banking.adapter.out.persistence.registeredaccount.RegisteredBankAccountEntity;

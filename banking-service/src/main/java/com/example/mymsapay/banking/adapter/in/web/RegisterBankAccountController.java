@@ -1,6 +1,6 @@
 package com.example.mymsapay.banking.adapter.in.web;
 
-import com.example.mymsapay.WebAdapter;
+import com.example.mymsapay.common.WebAdapter;
 import com.example.mymsapay.banking.adapter.in.web.dto.RegisterBankAccountRequest;
 import com.example.mymsapay.banking.application.port.in.RegisterBankAccountCommand;
 import com.example.mymsapay.banking.application.port.in.RegisterBankAccountUseCase;

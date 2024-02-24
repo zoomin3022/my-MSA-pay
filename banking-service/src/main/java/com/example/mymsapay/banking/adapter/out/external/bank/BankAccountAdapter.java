@@ -1,6 +1,6 @@
 package com.example.mymsapay.banking.adapter.out.external.bank;
 
-import com.example.mymsapay.ExternalSystemAdapter;
+import com.example.mymsapay.common.ExternalSystemAdapter;
 import com.example.mymsapay.banking.application.port.out.RequestBankAccountInfoPort;
 import com.example.mymsapay.banking.application.port.out.RequestExternalFirmbankingPort;
 import lombok.RequiredArgsConstructor;

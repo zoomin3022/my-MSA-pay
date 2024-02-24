@@ -12,7 +12,8 @@ public class SwaggerConfig {
 
     @Bean
     public OpenAPI openAPI() {
-        Server localServer = new Server().description("로컬 서버").url("http://localhost:8081");
+        Server localServer = new Server().description("로컬 서버").url("http://localhost:8080");
+        Server dockerServer = new Server().description("도커 서버").url("http://localhost:8081");
         Info info = new Info()
                 .title("MSA 찍먹용 미니 페이 프로젝트의 membership service API")
                 .version("1.0.0")
@@ -24,6 +25,7 @@ public class SwaggerConfig {
 
         return new OpenAPI()
                 .addServersItem(localServer)
+                .addServersItem(dockerServer)
                 .info(info);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.mymsapay.banking.adapter.out.persistence.firmbanking;
 
-import com.example.mymsapay.PersistenceAdapter;
+import com.example.mymsapay.common.PersistenceAdapter;
 import com.example.mymsapay.banking.application.port.out.RequestFirmbankingPort;
 import com.example.mymsapay.banking.domain.RequestFirmbanking;
 import lombok.RequiredArgsConstructor;

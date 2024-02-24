@@ -1,6 +1,6 @@
 package com.example.mymsapay.banking.adapter.out.persistence.registeredaccount;
 
-import com.example.mymsapay.PersistenceAdapter;
+import com.example.mymsapay.common.PersistenceAdapter;
 import com.example.mymsapay.banking.application.port.out.FindBankAccountPort;
 import com.example.mymsapay.banking.application.port.out.RegisterBankAccountPort;
 import com.example.mymsapay.banking.domain.RegisteredBankAccount;
