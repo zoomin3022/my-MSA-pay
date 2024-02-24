@@ -1,6 +1,6 @@
 package com.example.mymsapay.money.adapter.in.web;
 
-import com.example.mymsapay.WebAdapter;
+import com.example.mymsapay.common.WebAdapter;
 import com.example.mymsapay.money.adapter.in.web.dto.MoneyChargingRequest;
 import com.example.mymsapay.money.application.port.in.MoneyChargingCommand;
 import com.example.mymsapay.money.application.port.in.MoneyUseCase;

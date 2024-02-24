@@ -1,6 +1,6 @@
 package com.example.mymsapay.membership.adapter.out.persistence;
 
-import com.example.mymsapay.PersistenceAdapter;
+import com.example.mymsapay.common.PersistenceAdapter;
 import com.example.mymsapay.membership.application.port.out.FindMembershipPort;
 import com.example.mymsapay.membership.application.port.out.ModifyMembershipPort;
 import com.example.mymsapay.membership.application.port.out.RegisterMembershipPort;

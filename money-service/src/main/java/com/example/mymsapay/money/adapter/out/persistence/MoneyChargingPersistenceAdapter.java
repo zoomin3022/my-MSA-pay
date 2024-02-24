@@ -1,6 +1,6 @@
 package com.example.mymsapay.money.adapter.out.persistence;
 
-import com.example.mymsapay.PersistenceAdapter;
+import com.example.mymsapay.common.PersistenceAdapter;
 import com.example.mymsapay.money.application.port.out.ChargingMoneyPort;
 import com.example.mymsapay.money.domain.ChargingMoneyStatus;
 import com.example.mymsapay.money.domain.MemberMoney;

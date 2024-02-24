@@ -1,6 +1,6 @@
 package com.example.mymsapay.money.application.service;
 
-import com.example.mymsapay.UseCase;
+import com.example.mymsapay.common.UseCase;
 import com.example.mymsapay.money.adapter.out.persistence.MemberMoneyEntity;
 import com.example.mymsapay.money.adapter.out.persistence.MemberMoneyMapper;
 import com.example.mymsapay.money.adapter.out.persistence.MoneyChargingEntity;

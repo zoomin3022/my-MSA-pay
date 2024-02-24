@@ -1,6 +1,6 @@
 package com.example.mymsapay.membership.application.service;
 
-import com.example.mymsapay.UseCase;
+import com.example.mymsapay.common.UseCase;
 import com.example.mymsapay.membership.adapter.out.persistence.MembershipEntity;
 import com.example.mymsapay.membership.adapter.out.persistence.MembershipMapper;
 import com.example.mymsapay.membership.application.port.in.RegisterMembershipCommand;

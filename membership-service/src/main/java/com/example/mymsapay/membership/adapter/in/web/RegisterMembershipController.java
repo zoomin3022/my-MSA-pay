@@ -1,6 +1,6 @@
 package com.example.mymsapay.membership.adapter.in.web;
 
-import com.example.mymsapay.WebAdapter;
+import com.example.mymsapay.common.WebAdapter;
 import com.example.mymsapay.membership.adapter.in.web.dto.RegisterMembershipRequest;
 import com.example.mymsapay.membership.application.port.in.RegisterMembershipCommand;
 import com.example.mymsapay.membership.application.port.in.RegisterMembershipUseCase;

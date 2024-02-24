@@ -1,8 +1,7 @@
 package com.example.mymsapay.money.application.port.in;
 
-import com.example.mymsapay.SelfValidating;
+import com.example.mymsapay.common.SelfValidating;
 import jakarta.validation.constraints.Positive;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
