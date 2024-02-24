@@ -35,7 +35,7 @@ subprojects {
         annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
-        implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
+        implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
         //Swagger dependency
         testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.2.1'
 
