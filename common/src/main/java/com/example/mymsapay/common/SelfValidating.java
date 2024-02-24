@@ -1,4 +1,4 @@
-package com.example.mymsapay;
+package com.example.mymsapay.common;
 
 import jakarta.validation.*;
 
