@@ -18,7 +18,7 @@ public class Membership {
     @Getter
     private final String address;
     @Getter
-    private final boolean isValid;
+    private final Boolean isValid;
     @Getter
     private final String aggregateIdentifier;
 
