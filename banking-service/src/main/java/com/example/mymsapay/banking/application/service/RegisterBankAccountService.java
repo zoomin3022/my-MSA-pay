@@ -1,5 +1,7 @@
 package com.example.mymsapay.banking.application.service;
 
+import com.example.mymsapay.banking.application.port.out.GetMembershipPort;
+import com.example.mymsapay.banking.application.port.out.MembershipStatus;
 import com.example.mymsapay.common.UseCase;
 import com.example.mymsapay.banking.adapter.out.external.bank.BankAccount;
 import com.example.mymsapay.banking.adapter.out.external.bank.GetBankAccountRequest;
@@ -24,12 +26,19 @@ public class RegisterBankAccountService implements RegisterBankAccountUseCase {
 
     private final RequestBankAccountInfoPort requestBankAccountInfoPort;
 
+    private final GetMembershipPort getMembershipPort;
+
     @Transactional
     public RegisteredBankAccount registerBankAccount(RegisterBankAccountCommand command) {
 
         // 은행 계좌를 등록해야하는 서비스 (비즈니스 로직)
 
-        //멤버 서비스도 확인?
+        // 멤버 서비스도 확인?
+        // 멤버십 서비스와 통신 통해 정상인 회원인지 확인
+        MembershipStatus membership = getMembershipPort.getMembership(command.getMembershipId());
+        if (!membership.isValid()) {
+            throw new BankAccountException(BankAccountExceptionType.MEMBERSHIP_NOT_VALID);
+        }
 
         // 1. 외부 실제 은행에 등록된 계좌인지 (정상인지) 확인하다.
         // 외부의 은행에 통신해서 확인절차 필요

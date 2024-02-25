@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 public enum BankAccountExceptionType implements CustomExceptionType {
     BANK_ACCOUNT_NOT_EXISTS(HttpStatus.BAD_REQUEST, "B001", "존재하지 않는 계좌입니다"),
     BANK_ACCOUNT_NOT_VALID(HttpStatus.BAD_REQUEST, "B002", "계좌가 유효하지 않습니다"),
-    NULL_FAIL(HttpStatus.BAD_REQUEST, "B003", "계좌가 null 입니다");
+    NULL_FAIL(HttpStatus.BAD_REQUEST, "B003", "계좌가 null 입니다"),
+    MEMBERSHIP_SERVICE_CONNECTION_FAIL(HttpStatus.BAD_REQUEST, "BM001", "멤버십 서비스와 통신 실패"),
+    MEMBERSHIP_NOT_VALID(HttpStatus.BAD_REQUEST, "BM002", "유효한 회원이 아닙니다");
 
     private final HttpStatus httpStatus;
     private final String code;
