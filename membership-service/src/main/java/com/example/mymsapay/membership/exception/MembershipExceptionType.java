@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 @RequiredArgsConstructor
 public enum MembershipExceptionType implements CustomExceptionType {
-    MEMBERSHIP_NOT_EXISTS(HttpStatus.BAD_REQUEST, "M005", "존재하지 않는 계정입니다");
+    MEMBERSHIP_NOT_EXISTS(HttpStatus.BAD_REQUEST, "M001", "존재하지 않는 계정입니다");
 
     private final HttpStatus httpStatus;
     private final String code;
