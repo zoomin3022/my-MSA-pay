@@ -4,11 +4,17 @@ import com.example.mymsapay.banking.application.port.out.GetMembershipPort;
 import com.example.mymsapay.banking.application.port.out.MembershipStatus;
 import com.example.mymsapay.banking.exception.BankAccountException;
 import com.example.mymsapay.banking.exception.BankAccountExceptionType;
+import com.example.mymsapay.banking.exception.response.ErrorResponse;
 import com.example.mymsapay.common.CommonHttpClient;
+import com.example.mymsapay.exception.IpcException;
+import com.example.mymsapay.exception.IpcExceptionType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import java.net.http.HttpResponse;
+import java.net.http.HttpTimeoutException;
 
 @Component
 @Slf4j
@@ -19,7 +25,7 @@ public class MembershipServiceAdapter implements GetMembershipPort {
     private final String membershipServiceUrl;
 
     public MembershipServiceAdapter(CommonHttpClient commonHttpClient,
-                                     @Value("${service.membership.url}") String membershipServiceUrl) {
+                                    @Value("${service.membership.url}") String membershipServiceUrl) {
         this.commonHttpClient = commonHttpClient;
         this.membershipServiceUrl = membershipServiceUrl;
     }
@@ -29,21 +35,35 @@ public class MembershipServiceAdapter implements GetMembershipPort {
 
         String url = String.join("/", membershipServiceUrl, "membership", membershipId.toString());
         try {
-            String jsonResponse = commonHttpClient.sendGetRequest(url).body();
-            // json Membership
-
+            HttpResponse<String> response = commonHttpClient.sendGetRequest(url);
+            String responseBody = response.body();
             ObjectMapper mapper = new ObjectMapper();
-            Membership membership = mapper.readValue(jsonResponse, Membership.class);
-
-            if (membership.isValid()){
-                return new MembershipStatus(membership.membershipId(), true);
+            if (response.statusCode() == 200) {
+                Membership membership = mapper.readValue(responseBody, Membership.class);
+                if (membership.isValid()) {
+                    return new MembershipStatus(membership.membershipId(), true);
+                } else {
+                    return new MembershipStatus(membership.membershipId(), false);
+                }
             } else {
-                return new MembershipStatus(membership.membershipId(), false);
+                ErrorResponse errorResponse = mapper.readValue(responseBody, ErrorResponse.class);
+                if (errorResponse.getCode().equals("M001")) {
+                    throw new BankAccountException(BankAccountExceptionType.MEMBERSHIP_NOT_VALID);
+                }
+                throw new IpcException(IpcExceptionType.MEMBERSHIP_SERVICE_CONNECTION_FAIL);
             }
-        } catch (Exception e) {
+        } catch (BankAccountException e) {
+            throw e;
+        } catch (HttpTimeoutException e) {
+            log.error("URL: {}", url);
+            log.error("2초 타임 아웃");
+            throw new IpcException(IpcExceptionType.MEMBERSHIP_SERVICE_CONNECTION_FAIL);
+        }
+        catch (Exception e) {
+            log.error("Exception type = {} ", e.getClass().getName());
             log.error("StackTrace = {} ", (Object) e.getStackTrace());
             log.error("Message = {} ", (Object) e.getMessage());
-            throw new BankAccountException(BankAccountExceptionType.MEMBERSHIP_SERVICE_CONNECTION_FAIL);
+            throw new IpcException(IpcExceptionType.MEMBERSHIP_SERVICE_CONNECTION_FAIL);
         }
     }
 }

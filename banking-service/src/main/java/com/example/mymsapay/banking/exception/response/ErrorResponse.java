@@ -1,5 +1,7 @@
 package com.example.mymsapay.banking.exception.response;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 
@@ -12,7 +14,8 @@ public class ErrorResponse {
     @Schema(description = "오류 메시지", example = "이미 가입된 이메일 입니다.")
     private String message;
 
-    private ErrorResponse(String code, String message) {
+    @JsonCreator
+    private ErrorResponse(@JsonProperty("code") String code,@JsonProperty("message") String message) {
         this.code = code;
         this.message = message;
     }
