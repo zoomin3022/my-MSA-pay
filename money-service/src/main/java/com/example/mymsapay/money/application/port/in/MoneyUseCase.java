@@ -5,6 +5,7 @@ import com.example.mymsapay.money.domain.MoneyCharging;
 
 public interface MoneyUseCase {
     MoneyCharging chargeMoney(MoneyChargingCommand command);
+    MoneyCharging chargeMoneyAsync(MoneyChargingCommand command);
 
     MemberMoney createMoneyAccount(Long membershipId);
 
